@@ -13,7 +13,7 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar
+  StatusBar,
 } from "react-native";
 
 import {
@@ -21,7 +21,7 @@ import {
   LearnMoreLinks,
   Colors,
   DebugInstructions,
-  ReloadInstructions
+  ReloadInstructions,
 } from "react-native/Libraries/NewAppScreen";
 
 import CCode from "react-native-ccode";
@@ -50,7 +50,10 @@ const App = () => {
                 style={styles.sectionDescription}
                 onPress={async () => {
                   try {
-                    const res = await CCode.multiply(42, 2);
+                    const res = await CCode.createFingerPrint(
+                      [1.5, 2.2, 3],
+                      [4, 6, 7, 4, 3, 56, 7, 90, 11, 12, 13, 14, 15]
+                    );
                     alert(res.result);
                   } catch (e) {
                     console.warn(e.message || e);
@@ -69,32 +72,32 @@ const App = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter
+    backgroundColor: Colors.lighter,
   },
   engine: {
     position: "absolute",
-    right: 0
+    right: 0,
   },
   body: {
-    backgroundColor: Colors.white
+    backgroundColor: Colors.white,
   },
   sectionContainer: {
     marginTop: 32,
-    paddingHorizontal: 24
+    paddingHorizontal: 24,
   },
   sectionTitle: {
     fontSize: 24,
     fontWeight: "600",
-    color: Colors.black
+    color: Colors.black,
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
     fontWeight: "400",
-    color: Colors.dark
+    color: Colors.dark,
   },
   highlight: {
-    fontWeight: "700"
+    fontWeight: "700",
   },
   footer: {
     color: Colors.dark,
@@ -102,8 +105,8 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     padding: 4,
     paddingRight: 12,
-    textAlign: "right"
-  }
+    textAlign: "right",
+  },
 });
 
 export default App;
