@@ -51,7 +51,7 @@ const App = () => {
                 style={styles.sectionDescription}
                 onPress={async () => {
                   try {
-                    const res = await CCode.createFingerPrint(fgp1, [
+                    const res = await CCode.matchFingerPrint(fgp1, [
                       { id: "FGP1", ...fgp1 },
                       fgp2,
                       fgp3,
