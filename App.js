@@ -25,7 +25,7 @@ import {
 } from "react-native/Libraries/NewAppScreen";
 
 import CCode from "react-native-ccode";
-import { fgp1, fgp2 } from "./fgps";
+import { fgp1, fgp2, fgp3 } from "./fgps";
 
 const App = () => {
   return (
@@ -52,10 +52,9 @@ const App = () => {
                 onPress={async () => {
                   try {
                     const res = await CCode.createFingerPrint(fgp1, [
+                      { id: "FGP1", ...fgp1 },
                       fgp2,
-                      fgp2,
-                      fgp2,
-                      fgp2,
+                      fgp3,
                     ]);
                     alert(JSON.stringify(res.result, null, 2));
                   } catch (e) {
