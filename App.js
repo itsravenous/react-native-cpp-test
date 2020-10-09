@@ -25,6 +25,7 @@ import {
 } from "react-native/Libraries/NewAppScreen";
 
 import CCode from "react-native-ccode";
+import { fgp1, fgp2 } from "./fgps";
 
 const App = () => {
   return (
@@ -50,82 +51,7 @@ const App = () => {
                 style={styles.sectionDescription}
                 onPress={async () => {
                   try {
-                    const res = await CCode.createFingerPrint(
-                      {
-                        refs: [0.0, 0.0, 100.0, 100.0, 0.0, 100.0],
-                        points: [
-                          10.0,
-                          10.0,
-                          10.0,
-                          10.0,
-                          10.0,
-                          10.0,
-                          10.0,
-                          10.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          30.0,
-                          30.0,
-                          30.0,
-                          30.0,
-                          30.0,
-                          30.0,
-                          30.0,
-                          30.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                        ],
-                      },
-                      {
-                        refs: [0.0, 0.0, 100.0, 100.0, 0.0, 100.0],
-                        points: [
-                          15.0,
-                          15.0,
-                          15.0,
-                          15.0,
-                          15.0,
-                          15.0,
-                          15.0,
-                          15.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          20.0,
-                          37.0,
-                          37.0,
-                          37.0,
-                          37.0,
-                          37.0,
-                          37.0,
-                          37.0,
-                          37.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                          40.0,
-                        ],
-                      }
-                    );
+                    const res = await CCode.createFingerPrint(fgp1, fgp2);
                     alert(res.result);
                   } catch (e) {
                     console.warn(e.message || e);
