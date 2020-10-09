@@ -51,8 +51,13 @@ const App = () => {
                 style={styles.sectionDescription}
                 onPress={async () => {
                   try {
-                    const res = await CCode.createFingerPrint(fgp1, fgp2);
-                    alert(res.result);
+                    const res = await CCode.createFingerPrint(fgp1, [
+                      fgp2,
+                      fgp2,
+                      fgp2,
+                      fgp2,
+                    ]);
+                    alert(JSON.stringify(res.result, null, 2));
                   } catch (e) {
                     console.warn(e.message || e);
                   }
