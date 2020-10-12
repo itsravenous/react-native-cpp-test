@@ -51,11 +51,12 @@ const App = () => {
                 style={styles.sectionDescription}
                 onPress={async () => {
                   try {
-                    const res = await CCode.matchFingerPrint(fgp1, [
-                      { id: "FGP1", ...fgp1 },
-                      fgp2,
-                      fgp3,
-                    ]);
+                    const res = await CCode.matchFingerPrint(fgp1);
+                    // const res = await CCode.matchFingerPrint(fgp1, [
+                    //   { id: "FGP1", ...fgp1 },
+                    //   fgp2,
+                    //   fgp3,
+                    // ]);
                     alert(JSON.stringify(res.result, null, 2));
                   } catch (e) {
                     console.warn(e.message || e);
@@ -63,6 +64,19 @@ const App = () => {
                 }}
               >
                 **Click** for the magic result
+              </Text>
+              <Text
+                style={styles.sectionDescription}
+                onPress={async () => {
+                  try {
+                    const res = await CCode.multiply(6, 9);
+                    alert(res.result);
+                  } catch (e) {
+                    console.warn(e.message || e);
+                  }
+                }}
+              >
+                Click for Android result
               </Text>
             </View>
           </View>
