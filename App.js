@@ -51,13 +51,13 @@ const App = () => {
                 style={styles.sectionDescription}
                 onPress={async () => {
                   try {
-                    const res = await CCode.matchFingerPrint(fgp1, [fgp2]);
-                    // const res = await CCode.matchFingerPrint(fgp1, [
-                    //   { id: "FGP1", ...fgp1 },
-                    //   fgp2,
-                    //   fgp3,
-                    // ]);
+                    const res = await CCode.matchFingerPrint(fgp1, [
+                      { id: "FGP1", ...fgp1 },
+                      fgp2,
+                      fgp3,
+                    ]);
                     alert(JSON.stringify(res.result, null, 2));
+                    // alert("hi there");
                   } catch (e) {
                     console.warn(e.message || e);
                   }
